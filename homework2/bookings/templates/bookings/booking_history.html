@@ -1,0 +1,20 @@
+{% extends 'bookings/base.html' %}
+{% block title %}Booking List{% endblock %}
+{% block content %}
+<body style="background-color: #370982;">
+<h2 style="color:white">Bookings</h2>
+<ul class="list-group">
+    {% for booking in bookings %}
+    <li class="list-group-item">
+        <h5>{{ booking.movie.title }}</h5>
+        <p> Seat: {{ booking.seat.seat_number }} </p>
+        <p> Date of booking: {{ booking.booking_date }} </p>
+        <p> Booked by: {{ booking.user }} </p>
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'movie_list' %}" class="btn btn-primary mt-3">Back to Movie List</a>
+
+</body>
+{% endblock %}

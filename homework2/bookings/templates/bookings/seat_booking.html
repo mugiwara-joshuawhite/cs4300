@@ -1,0 +1,47 @@
+{% extends 'bookings/base.html' %}
+{% block title %}Seat Booking{% endblock %}
+{% block content %}
+<h2>Book a Seat for {{ movie.title }}</h2>
+<div class="seat-select">
+    <div class="screen"; style=
+    "margin-right: auto;
+    margin-left: auto;
+    max-width: 50%;
+    display: block;
+    background-color: black;
+    color: white;
+    font-size: 20pt;
+    text-align: center"
+    >
+        Screen
+    </div>
+
+    <!--Code suggested by DevEDU chat. I understand what it is doing.-->
+    <!--I mostly just don't like doing UI-->
+    <form method="post" action="{% url 'book_seat' movie.id %}">
+        {% csrf_token %}
+    {% for row in rows %}
+    <div class="row mb-2">
+        {% for seat in row %}
+        <div class="col">
+            <input type="radio" class="btn-check" name="seat_id" id="seat-{{ seat.id }}"
+                   value="{{ seat.id }}" autocomplete="off" required
+                   {% if seat.is_booked %}disabled{% endif %}>
+            <label class="btn btn-outline-primary" for="seat-{{ seat.id }}">
+                {{ seat.seat_number }}
+            </label>
+        </div>
+    {% endfor %}
+    </div>
+{% endfor %}
+        <div class="mt-3">
+            <label for="booking-user" class="form-label">Your name</label>
+            <input id="booking-user" type="text" name="user" class="form-control"
+                   placeholder="Enter your name" required>
+            <button type="submit" class="btn btn-primary mt-2">Book selected seat</button>
+        </div>
+    </form>
+    <!--End of code suggested by DevEDU chat.-->
+
+</div>
+{% endblock %}
