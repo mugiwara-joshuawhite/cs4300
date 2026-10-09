@@ -9,10 +9,4 @@ class Migration(migrations.Migration):
         ('bookings', '0007_merge_20261008_1952'),
     ]
 
-    operations = [
-        migrations.AddField(
-            model_name='seat',
-            name='booking_status',
-            field=models.BooleanField(default=False),
-        ),
-    ]
+    operations = []
