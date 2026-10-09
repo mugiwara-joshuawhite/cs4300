@@ -1,1 +1,0 @@
-Git won't push an empty directory, so this is here to be able to push homework2
