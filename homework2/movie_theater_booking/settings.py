@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-qy&qeuxe%xrev09!k%(2(7^^0fnj9ovnsjj-7o0e^qay)nvczr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['app-bravecobra8862-28.lab.devedu.io']
+ALLOWED_HOSTS = ['app-bravecobra8862-28.lab.devedu.io', 'cs4300-ko1l.onrender.com']
 
 
 # Application definition
